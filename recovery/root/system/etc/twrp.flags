@@ -6,21 +6,21 @@ product		/product	ext4						wait,logical,first_stage_mount
 odm		/odm		ext4						wait,logical,first_stage_mount
 
 # Symlinked partitions
-/system_image	emmc		/dev/block/bootdevice/by-name/system		flags=backup=0;flashimg;display="System Image"
-/vendor_image	emmc		/dev/block/bootdevice/by-name/vendor		flags=backup=0;flashimg;display="Vendor Image"
-/product_image	emmc		/dev/block/bootdevice/by-name/product		flags=backup=0;flashimg;display="Product Image"
-/odm_image	emmc		/dev/block/bootdevice/by-name/odm		flags=backup=0;flashimg;display="Odm Image"
+/system_image	emmc		/dev/block/bootdevice/by-name/system		flags=backup=1;flashimg;display="System Image";wipingui
+/vendor_image	emmc		/dev/block/bootdevice/by-name/vendor		flags=backup=1;flashimg;display="Vendor Image";wipingui
+/product_image	emmc		/dev/block/bootdevice/by-name/product		flags=backup=1;flashimg;display="Product Image";wipingui
+/odm_image	emmc		/dev/block/bootdevice/by-name/odm		flags=backup=1;flashimg;display="Odm Image"
 
 # Physical partitions
 /metadata	ext4		/dev/block/bootdevice/by-name/metadata		flags=backup=1;display="Metadata"
-/boot		emmc		/dev/block/bootdevice/by-name/boot		flags=backup=1;flashimg;display="Boot"
-/recovery	emmc		/dev/block/bootdevice/by-name/recovery		flags=backup=1;flashimg;display="Recovery"
+/boot		emmc		/dev/block/bootdevice/by-name/boot		flags=backup=1;flashimg;display="Boot";flashimg
+/recovery	emmc		/dev/block/bootdevice/by-name/recovery		flags=backup=1;flashimg;display="Recovery""flashimg
 /data		f2fs		/dev/block/bootdevice/by-name/userdata		flags=length=-20480
-/cache		ext4		/dev/block/bootdevice/by-name/cache		flags=backup=1;display="Cache"
-/efs		ext4		/dev/block/bootdevice/by-name/sec_efs		flags=backup=1;display="EFS"
-/modem		emmc		/dev/block/bootdevice/by-name/radio		flags=backup=1;display="Modem"
+/cache		ext4		/dev/block/bootdevice/by-name/cache		flags=backup=1;display="Cache";wipingui
+/efs		ext4		/dev/block/bootdevice/by-name/sec_efs		flags=backup=1;display="EFS";backup=1
+/modem		emmc		/dev/block/bootdevice/by-name/radio		flags=backup=1;display="Modem";backup=1
 /misc		emmc		/dev/block/bootdevice/by-name/misc
-/dtbo		emmc		/dev/block/bootdevice/by-name/dtbo		flags=backup=1;flashimg;display="Dtbo"
+/dtbo		emmc		/dev/block/bootdevice/by-name/dtbo		flags=backup=1;flashimg;display="Dtbo";flashimg
 /cp_debug	emmc		/dev/block/bootdevice/by-name/cp_debug		flags=backup=1;display="CP Debug"
 /param		emmc		/dev/block/bootdevice/by-name/param		flags=backup=1;display="Param"
 /optics_image	emmc		/dev/block/bootdevice/by-name/optics		flags=backup=1;flashimg;display="Optics Image"
